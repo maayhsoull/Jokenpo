@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Jokenpo {
     int escolha;
-    int numeroAleatorio = (int) (Math.random() * 4);
+    int numeroAleatorio;
     String resultado;
     String informeEscolha;
     String informeEscolhaComputador;
@@ -12,6 +12,8 @@ public class Jokenpo {
 
     public void obterDados(){
         Scanner leitor = new Scanner(System.in);
+        Scanner leitor2 = new Scanner(System.in);
+
         System.out.println("--------------------------------------");
         System.out.println("*** Vamos jogar Jokenpô! ***");
         System.out.println("--------------------------------------");
@@ -25,14 +27,20 @@ public class Jokenpo {
         jogar();
         exibirResultado();
 
+        System.out.print("\nDeseja jogar novamente (S/N)?");
+        escolhaNovamente = leitor2.nextLine().toUpperCase();
+
+        if (escolhaNovamente.equals("S")){
+            obterDados();
+        }else {
+            System.out.println("Até Logo!");
+        }
+
     }
 
     public void jogar(){
 
-        if (numeroAleatorio == 0){
-
-            numeroAleatorio = (int) (Math.random() * 4);
-        }
+        numeroAleatorio = (int) (Math.random() * 4) + 1;
 
         if (escolha == numeroAleatorio){
 
@@ -80,8 +88,9 @@ public class Jokenpo {
 
 
         System.out.println("Você escolheu: " + informeEscolha);
-        System.out.println("O computador escolheu: " + informeEscolhaComputador);
+        System.out.println("O computador escolheu: " + informeEscolhaComputador + "\n");
         System.out.println(resultado);
 
     }
+
 }
