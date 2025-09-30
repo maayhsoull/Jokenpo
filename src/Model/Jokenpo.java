@@ -34,9 +34,21 @@ public class Jokenpo {
             numeroAleatorio = (int) (Math.random() * 4);
         }
 
-        if (escolha == 1 && numeroAleatorio == 1){
+        if (escolha == numeroAleatorio){
 
             resultado = "* * *  E M P A T O U  * * * ";
+
+        }else if (escolha == 1 && numeroAleatorio == 3
+                || escolha == 2 && numeroAleatorio == 1 ||
+                    escolha == 3 && numeroAleatorio == 2) {
+
+            resultado = "* * *  V O C Ê  V E N C E U  * * * ";
+
+        }else if (escolha == 3 && numeroAleatorio == 1
+                || escolha == 1 && numeroAleatorio == 2 ||
+                escolha == 2 && numeroAleatorio == 3) {
+
+            resultado = "* * *  V O C Ê  P E R D E U  * * * ";
 
         }
 
