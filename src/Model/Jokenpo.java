@@ -42,6 +42,10 @@ public class Jokenpo {
 
         numeroAleatorio = (int) (Math.random() * 4) + 1;
 
+        if (numeroAleatorio == 4){
+            numeroAleatorio = (int) (Math.random() * 4) + 1;
+        }
+
         if (escolha == numeroAleatorio){
 
             resultado = "* * *  E M P A T O U  * * * ";
