@@ -6,6 +6,6 @@ public class JokenpoApp {
     public static void main(String[] args) {
         Jokenpo jokenpo = new Jokenpo();
 
-        jokenpo.testandoRandom();
+        jokenpo.obterDados();
     }
 }
