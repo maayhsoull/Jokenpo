@@ -1,9 +1,10 @@
 package Model;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class Jokenpo {
-    int escolha;
+    int escolhaUsuario;
     int numeroAleatorio;
     String resultado;
     String informeEscolha;
@@ -23,7 +24,7 @@ public class Jokenpo {
         System.out.println("(3) Tesoura");
         System.out.println("--------------------------------------");
         System.out.print("Digite sua escolha: ");
-        escolha = leitor.nextInt();
+        escolhaUsuario = leitor.nextInt();
         jogar();
         exibirResultado();
 
@@ -39,26 +40,28 @@ public class Jokenpo {
     }
 
     public void jogar(){
+        Random random = new Random();
 
-        numeroAleatorio = (int) (Math.random() * 4) + 1;
+        numeroAleatorio = random.nextInt(3) + 1;
 
-        if (numeroAleatorio == 4){
-            numeroAleatorio = (int) (Math.random() * 4) + 1;
+        if (escolhaUsuario > 3 ){
+            System.out.println("Escolha inválida, digite novamente!");
+            obterDados();
         }
 
-        if (escolha == numeroAleatorio){
+        if (escolhaUsuario == numeroAleatorio){
 
             resultado = "* * *  E M P A T O U  * * * ";
 
-        }else if (escolha == 1 && numeroAleatorio == 3
-                || escolha == 2 && numeroAleatorio == 1 ||
-                    escolha == 3 && numeroAleatorio == 2) {
+        }else if (escolhaUsuario == 1 && numeroAleatorio == 3
+                || escolhaUsuario == 2 && numeroAleatorio == 1 ||
+                    escolhaUsuario == 3 && numeroAleatorio == 2) {
 
             resultado = "* * *  V O C Ê  V E N C E U  * * * ";
 
-        }else if (escolha == 3 && numeroAleatorio == 1
-                || escolha == 1 && numeroAleatorio == 2 ||
-                escolha == 2 && numeroAleatorio == 3) {
+        }else if (escolhaUsuario == 3 && numeroAleatorio == 1
+                || escolhaUsuario == 1 && numeroAleatorio == 2 ||
+                escolhaUsuario == 2 && numeroAleatorio == 3) {
 
             resultado = "* * *  V O C Ê  P E R D E U  * * * ";
 
@@ -68,13 +71,13 @@ public class Jokenpo {
 
     public void exibirResultado(){
 
-        if (escolha == 1){
+        if (escolhaUsuario == 1){
             informeEscolha = "Pedra";
 
-        } else if (escolha == 2) {
+        } else if (escolhaUsuario == 2) {
             informeEscolha = "Papel";
 
-        } else if (escolha == 3) {
+        } else if (escolhaUsuario == 3) {
             informeEscolha = "Tesoura";
 
         }
